@@ -39,21 +39,21 @@ def generateLink(title, start_time, end_time, description, calenderLinkType,zoom
     st.code(google_link, wrap_lines=True)
 
 @st.dialog("Error Alert")
-def checkButton(name):   
-    st.error(f"{name} cannot be empty")
+def checkButton(text):   
+    st.error(text)
 
 
 GenerateButton = st.button("Generate Calendar Link", type="primary")
 if GenerateButton:
     if title == "":
-        checkButton("Title")
+        checkButton("Title cannot be empty")
     elif zoom_link == "":
-        checkButton("Zoom Link")
+        checkButton("Zoom Link cannot be empty")
     elif meetingID =="":
-        checkButton("Meeting ID")
+        checkButton("Meeting ID cannot be empty")
     else:
         if start_time >= end_time:
-            st.error("Start time must be before end time.")
+            checkButton("Start time must be before end time.")
         else:
             description = "Details" if description == "" else description
             generateLink(title, start_time, end_time,description, calenderLinkType, zoom_link, meetingID)
