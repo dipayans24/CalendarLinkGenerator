@@ -1,6 +1,6 @@
 import streamlit as st
 from datetime import timedelta
-from calendar_link import CalendarEvent, CalendarGenerator
+from calendar_link import CalendarEvent, CalendarGenerator 
 
 header = st.header("Calendar Link Generator")
 title = st.text_input("Title:")
@@ -46,11 +46,11 @@ def checkButton(text):
 GenerateButton = st.button("Generate Calendar Link", type="primary")
 if GenerateButton:
     if title == "":
-        checkButton("Title cannot be empty")
+        checkButton("Title cannot be empty.")
     elif zoom_link == "":
-        checkButton("Zoom Link cannot be empty")
+        checkButton("Zoom Link cannot be empty.")
     elif meetingID =="":
-        checkButton("Meeting ID cannot be empty")
+        checkButton("Meeting ID cannot be empty.")
     else:
         if start_time >= end_time:
             checkButton("Start time must be before end time.")
